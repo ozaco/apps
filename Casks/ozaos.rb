@@ -1,6 +1,6 @@
 cask "ozaos" do
-  version "0.1.1"
-  sha256 "b9c85a91c38d4330d1cd2190d97edbf83ae5992d16461c73008c427f4eab6dfd"
+  version "0.1.2"
+  sha256 "1b8a3179cfb8df89de670679ba5c69bfdbadce92e50a35c15bcea294ab37ccbb"
 
   url "https://github.com/ozaco/apps/releases/download/ozaos-v#{version}/ozaOS-#{version}-arm64.dmg"
   name "ozaOS"
