@@ -1,10 +1,12 @@
+# Written by the ozaco release tool, from the release this file names.
+# Do not edit it here: the next release run overwrites every change.
 cask "ozaos" do
-  version "0.1.2"
-  sha256 "1b8a3179cfb8df89de670679ba5c69bfdbadce92e50a35c15bcea294ab37ccbb"
+  version "0.1.3"
+  sha256 "56163a4cdd2c376d9d22bf0f90b4f3131e1638b636ee61996b6cff78f35e2025"
 
   url "https://github.com/ozaco/apps/releases/download/ozaos-v#{version}/ozaOS-#{version}-arm64.dmg"
   name "ozaOS"
-  desc "Local-first note vault for coding agents, over MCP"
+  desc "Desktop window onto a local-first note vault for coding agents"
   homepage "https://github.com/ozaco/apps"
 
   livecheck do
@@ -14,16 +16,39 @@ cask "ozaos" do
   end
 
   depends_on arch: :arm64
+  depends_on formula: "ozaco/apps/ozc"
 
   app "ozaOS.app"
 
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/ozaOS.app"]
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/ozaOS.app"]
   end
 
-  zap trash: [
-    "~/.ozaco/ozaos",
-    "~/.ozaco/profiles/local/ozaos.json",
-  ]
+  uninstall quit: "com.ozaco.ozaos"
+
+  zap launchctl: [
+        "com.ozaco.ozaos",
+        "com.ozaco.ozaosd",
+      ],
+      trash:     [
+        "~/.ozaco/ozaos",
+        "~/.ozaco/profiles/local/ozaos.json",
+      ]
+
+  caveats <<~EOS
+    ozaOS.app is the window. The vault it shows is kept by a daemon, which
+    does not come with this cask. ozc installs it, together with the ozaos
+    command, and ozc did come with this cask, as the formula it depends on:
+
+      ozc install ozaos
+
+    The window offers to start the daemon once it is installed. To have it
+    started at every login:
+
+      ozc ozaos daemon install
+
+    An ozaOS from before there was a daemon kept the vault inside the app.
+    One that is still open - it sits in the menu bar, and opens at every
+    login - holds the vault: quit it before the daemon is started.
+  EOS
 end
