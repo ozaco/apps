@@ -2,7 +2,7 @@
 # Do not edit it here: the next release run overwrites every change.
 set -eu
 
-version="0.0.2"
+version="0.2.0"
 
 case "$(uname -s)" in
   Linux) os="linux" ;;
@@ -15,11 +15,11 @@ esac
 case "$(uname -m)" in
   x86_64 | amd64)
     arch="x64"
-    sha256="404bb24df6181f4bb542d81e209fb5065abf742668610b0ce6452149125a9b0e"
+    sha256="144abc083e9bf42656b11440ffefcba7ff1800b7bad44d0801d0787e42ae44a0"
     ;;
   aarch64 | arm64)
     arch="arm64"
-    sha256="ec65062dffe892cc2c5dccdb6c6eb5a951514a0af2603fd75dea596d8126b75a"
+    sha256="a37652d75ae1cfab1a6adc3191d11d53788d8a5d0173ee352f4ab8aefd3ea66b"
     ;;
   *)
     echo "ozc: no ozc is built for $(uname -m)" >&2
