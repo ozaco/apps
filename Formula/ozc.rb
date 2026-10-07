@@ -3,9 +3,9 @@
 class Ozc < Formula
   desc "Plugin host and installer for what ozaco releases"
   homepage "https://github.com/ozaco/apps"
-  url "https://github.com/ozaco/apps/releases/download/ozc-v0.2.0/ozc-0.2.0-darwin-arm64.tar.gz"
-  version "0.2.0"
-  sha256 "3512585db69b56176d0d0ecca6af5d4df7a1ae8639a07f54478dfc1b18441ed8"
+  url "https://github.com/ozaco/apps/releases/download/ozc-v0.2.1/ozc-0.2.1-darwin-arm64.tar.gz"
+  version "0.2.1"
+  sha256 "10b19cfc619c82ad8bc391f166cd55b183eab12737d5c72e2e8fda70438c1af5"
 
   livecheck do
     url :stable
