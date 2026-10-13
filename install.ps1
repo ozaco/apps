@@ -3,14 +3,14 @@
 $ErrorActionPreference = "Stop"
 $ProgressPreference = "SilentlyContinue"
 
-$version = "0.2.2"
+$version = "0.2.3"
 
 $arch = switch ($env:PROCESSOR_ARCHITECTURE) {
   "AMD64" { "x64" }
   "ARM64" { "arm64" }
   default { throw "ozc: no ozc is built for $env:PROCESSOR_ARCHITECTURE" }
 }
-$sha256 = @{ x64 = "8aa0d6d03247f0661fe3724df04596fb4d84713e1605bd31515ccc2dd31a11d1"; arm64 = "5e0f1309a6ed17bedebea5db55af2dc2cfc6f656f6121510bbd172631a6e1294" }[$arch]
+$sha256 = @{ x64 = "843fd6c997399236abacc64398250be7607cbcf7769f14966b0d2e6f9cfc8f2a"; arm64 = "be35f006511e0ff93be6ff16c81187c9387d5780f05af2390280f2179ca85bfb" }[$arch]
 
 if (-not $sha256) {
   throw "ozc: ozc $version was not released for win32-$arch"
