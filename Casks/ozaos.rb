@@ -1,8 +1,8 @@
 # Written by the ozaco release tool, from the release this file names.
 # Do not edit it here: the next release run overwrites every change.
 cask "ozaos" do
-  version "0.1.7"
-  sha256 "3eb49be114fe6d1563ae432865b6d6763c9c5c0f525be52ce74d0b2e4a8a14c8"
+  version "0.1.8"
+  sha256 "8446dc0e5bae4c94dd8060df1c4949a46166f86d1d116b84f41570243f6ffb4e"
 
   url "https://github.com/ozaco/apps/releases/download/ozaos-v#{version}/ozaOS-#{version}-arm64.dmg"
   name "ozaOS"
